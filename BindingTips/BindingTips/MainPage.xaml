@@ -14,12 +14,12 @@
             <Entry x:Name="TotalAmountEntry"  Placeholder="$0.00" TextChanged="TotalAmount_Entry_TextChanged" Keyboard="Numeric"/>
 
             <Label Text="Canadian Province" FontSize="Small"/>
-            <Picker />
+            <Picker  />
             <Label Text="HST/GST 10.50%" FontSize="Small" HorizontalOptions="End"/>
 
             <Label Text="Tip Percentage" FontSize="Small"/>
-            <Label Text="10%" FontSize="Large" />
-            <Slider x:Name="TipSlider" ValueChanged="TipSlider_ValueChanged"/>
+            <Label Text="{Binding Source={x:Reference TipSlider}, Path=Value, StringFormat='{0:F0}%'}" FontSize="Large" />
+            <Slider x:Name="TipSlider" ValueChanged="TipSlider_ValueChanged" Minimum="0" Maximum="100"/>
 
             <Label Text="Tax Amount..........................$20.00" TextColor="{StaticResource Tertiary}" FontSize="Small" HorizontalOptions="End"/>
             <Label Text="Tip Amount..........................$30.00" TextColor="{StaticResource Tertiary}" FontSize="Small" HorizontalOptions="End"/>
