@@ -11,16 +11,15 @@
         VerticalOptions="Center">
             <ImageButton Source="info.png" HorizontalOptions="End" Clicked="Btn_InfoPage_Clicked" HeightRequest="30"/>
             <Label Text="Bill Amount Before Tax" FontSize="Small"/>
-            <Entry Placeholder="$ 0.00" Text="" Keyboard="Numeric" FontSize="Large"/>
+            <Entry />
 
             <Label Text="Canadian Province" FontSize="Small"/>
-            <Picker x:Name ="ProvincesPicker" 
-                />
+            <Picker />
             <Label Text="HST/GST 10.50%" FontSize="Small" HorizontalOptions="End"/>
 
             <Label Text="Tip Percentage" FontSize="Small"/>
             <Label Text="10%" FontSize="Large" />
-            <Slider x:Name="slider" Minimum="0" Maximum="100"/>
+            <Slider />
 
             <Label Text="Tax Amount..........................$20.00" TextColor="{StaticResource Tertiary}" FontSize="Small" HorizontalOptions="End"/>
             <Label Text="Tip Amount..........................$30.00" TextColor="{StaticResource Tertiary}" FontSize="Small" HorizontalOptions="End"/>
