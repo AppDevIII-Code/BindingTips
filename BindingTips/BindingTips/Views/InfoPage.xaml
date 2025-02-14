@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BindingTips.Views.InfoPage"
+             Title="InfoPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="5"  Spacing="5">
+            <Label 
+            Text="At the restaurant (waiter or waitress)"
+            FontSize="Medium"
+            FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="The standard tip at a restaurant is 15% and may exceed 20% (which is a very good tip).However, when you talk about tip for take-out orders, it is often zero. &#x0a;"
+               FontSize="Small" />
+
+            <Label 
+            Text="Restaurant Delivery Person"
+            FontSize="Medium"
+            FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="The standard for restaurant delivery is usually 10% of the amount before taxes.&#x0a;"
+               FontSize="Small"/>
+
+            <Label 
+             Text="Hotel"
+             FontSize="Medium"
+             FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="The maids are generally entitled to $1 overnight stay / room. It is the same amount per luggage for a Porter.&#x0a;"
+               FontSize="Small"/>
+
+            <Label 
+             Text="Dressing or hairdresser"
+             FontSize="Medium"
+             FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="The amount of tip for hairdressers or barbers is between 5% and 15%.&#x0a;"
+               FontSize="Small"/>
+
+
+            <Label 
+             Text="Taxi Driver"
+             FontSize="Medium"
+             FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="The amount reserved for taxi drivers varied from 10% to 15% depending on the service offered. If the driver helps you with your luggage or guide you to different places to visit, the percentage should be considered on the rise. ($ 1 / bag and / or 15% of the stroke).&#x0a;"
+               FontSize="Small"/>
+
+
+            <Label Text="Tips in Other Countries" FontSize="Large" HorizontalOptions="Center"/>
+
+
+            <Label 
+             Text="United States"
+             FontSize="Medium"
+             FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="The tip standards are essentially the same as in Canada.&#x0a;"
+               FontSize="Small"/>
+
+            <Label 
+             Text="Mexico, Cuba, Haiti, Dominican Repulic"
+             FontSize="Medium"
+             FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="The tip is usually between 5% - 15%.&#x0a;"
+               FontSize="Small"/>
+
+            <Label 
+             Text="Brazil, Columbia, Chile, Ecuador "
+             FontSize="Medium"
+             FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="The tip is usually included in the price of the invoice. However, it is very appreciated, especially when good service to give an amount up to the difference in the rounded invoice or around 5%.&#x0a;"
+               FontSize="Small"/>
+
+            <Label 
+             Text="Iceland and Fineland"
+             FontSize="Medium"
+             FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="No tips need to be payed.&#x0a;"
+               FontSize="Small"/>
+
+            <Label 
+             Text="China, Japan, South Korea"
+             FontSize="Medium"
+             FontAttributes="Bold"/>
+            <Border BackgroundColor="Black" HorizontalOptions="FillAndExpand"  HeightRequest="2"/>
+            <Label Text="The tip is not necessary and can even insult the person who rendered the service.&#x0a;"
+               FontSize="Small"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

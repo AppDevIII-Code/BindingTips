@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BindingTips.MainPage"
+             Title="Canadian Tip Calculator">
+
+    <ScrollView >
+        <VerticalStackLayout
+        Spacing="15"
+        Padding="15,15"
+        VerticalOptions="Center">
+            <ImageButton Source="info.png" HorizontalOptions="End" Clicked="Btn_InfoPage_Clicked" HeightRequest="30"/>
+            <Label Text="Bill Amount Before Tax" FontSize="Small"/>
+            <Entry Placeholder="$ 0.00" Text="" Keyboard="Numeric" FontSize="Large"/>
+
+            <Label Text="Canadian Province" FontSize="Small"/>
+            <Picker x:Name ="ProvincesPicker" 
+                />
+            <Label Text="HST/GST 10.50%" FontSize="Small" HorizontalOptions="End"/>
+
+            <Label Text="Tip Percentage" FontSize="Small"/>
+            <Label Text="10%" FontSize="Large" />
+            <Slider x:Name="slider" Minimum="0" Maximum="100"/>
+
+            <Label Text="Tax Amount..........................$20.00" TextColor="{StaticResource Tertiary}" FontSize="Small" HorizontalOptions="End"/>
+            <Label Text="Tip Amount..........................$30.00" TextColor="{StaticResource Tertiary}" FontSize="Small" HorizontalOptions="End"/>
+
+            <Label Text="Total Amount        $50.00" TextColor="{StaticResource Tertiary}" HorizontalOptions="End" FontSize="Large" FontAttributes="Bold" />
+
+            <Border  BackgroundColor="{StaticResource Secondary}" StrokeShape="RoundRectangle 20,20,20,20" HeightRequest="150" Stroke="Transparent" VerticalOptions="EndAndExpand" Margin="-5">
+                <Grid RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*" ColumnSpacing="5" Padding="10">
+                    <Label Text="Split" TextColor="{StaticResource Tertiary}" Grid.Row="0" Grid.Column="0"  HorizontalTextAlignment="Start"/>
+                    <Label Text="Split Total" TextColor="{StaticResource Tertiary}" Grid.Row="0" Grid.Column ="4" Grid.ColumnSpan="2" HorizontalTextAlignment="End"/>
+
+                    <ImageButton Source="minus.png" HeightRequest="30" BackgroundColor="Transparent" Opacity="0.7" Grid.Row="1" Grid.Column="0"/>
+                    <Label Text="5" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+                    <ImageButton Source="add.png" HeightRequest="30"  BackgroundColor="Transparent"  Opacity="0.7" Grid.Row="1" Grid.Column="2"  />
+
+                    <Label Text="$10.00"  Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="End" FontSize="Large" TextColor="{StaticResource Primary}" FontAttributes="Bold"/>
+
+                </Grid>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
