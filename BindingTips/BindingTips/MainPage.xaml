@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BindingTips.MainPage"
+             xmlns:models="clr-namespace:BindingTips.Models"
+             xmlns:repos="clr-namespace:BindingTips.DataRepos"
              Title="Canadian Tip Calculator">
 
     <ScrollView >
@@ -14,28 +16,28 @@
             <Entry x:Name="TotalAmountEntry"  Placeholder="$0.00" TextChanged="TotalAmount_Entry_TextChanged" Keyboard="Numeric"/>
 
             <Label Text="Canadian Province" FontSize="Small"/>
-            <Picker  />
-            <Label Text="HST/GST 10.50%" FontSize="Small" HorizontalOptions="End"/>
+            <Picker x:Name="ProvincesPicker" ItemsSource="{Binding Source={x:Static repos:ProvincesRepo.Provinces}}" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="ProvincesPicker_SelectionChanged"/>
+            <Label Text="{Binding Source={x:Reference ProvincesPicker},Path=SelectedItem.TaxRate, StringFormat='HST/GST {0:F2}%'}" FontSize="Small" HorizontalOptions="End"/>
 
             <Label Text="Tip Percentage" FontSize="Small"/>
             <Label Text="{Binding Source={x:Reference TipSlider}, Path=Value, StringFormat='{0:F0}%'}" FontSize="Large" />
             <Slider x:Name="TipSlider" ValueChanged="TipSlider_ValueChanged" Minimum="0" Maximum="100"/>
 
-            <Label Text="Tax Amount..........................$20.00" TextColor="{StaticResource Tertiary}" FontSize="Small" HorizontalOptions="End"/>
-            <Label Text="Tip Amount..........................$30.00" TextColor="{StaticResource Tertiary}" FontSize="Small" HorizontalOptions="End"/>
+            <Label Text="{Binding Bill.TaxAmount,StringFormat='Tax Amount..........................{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource White}}" FontSize="Small" HorizontalOptions="End"/>
+            <Label Text="{Binding Bill.TipAmount,StringFormat='Tip Amount..........................{0:C}'}" TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource White}}" FontSize="Small" HorizontalOptions="End"/>
 
-            <Label Text="Total Amount        $50.00" TextColor="{StaticResource Tertiary}" HorizontalOptions="End" FontSize="Large" FontAttributes="Bold" />
+            <Label Text="{Binding Bill.TotalAmount, StringFormat='Total Amount        {0:C}'}" TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource White}}" HorizontalOptions="End" FontSize="Large" FontAttributes="Bold" />
 
             <Border  BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Black}}" StrokeShape="RoundRectangle 20,20,20,20" HeightRequest="150" Stroke="Transparent" VerticalOptions="EndAndExpand" Margin="-5">
                 <Grid RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*" ColumnSpacing="5" Padding="10">
-                    <Label Text="Split" TextColor="{StaticResource Tertiary}" Grid.Row="0" Grid.Column="0"  HorizontalTextAlignment="Start"/>
-                    <Label Text="Split Total" TextColor="{StaticResource Tertiary}" Grid.Row="0" Grid.Column ="4" Grid.ColumnSpan="2" HorizontalTextAlignment="End"/>
+                    <Label Text="Split" TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource White}}" Grid.Row="0" Grid.Column="0"  HorizontalTextAlignment="Start"/>
+                    <Label Text="Split Total" TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource White}}" Grid.Row="0" Grid.Column ="4" Grid.ColumnSpan="2" HorizontalTextAlignment="End"/>
 
-                    <ImageButton Source="{AppThemeBinding Light=minus.png,Dark=minus_dark.png}" HeightRequest="30" BackgroundColor="Transparent" Opacity="0.7" Grid.Row="1" Grid.Column="0"/>
-                    <Label Text="5" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
-                    <ImageButton Source="{AppThemeBinding Light=add.png, Dark=add_dark.png}" HeightRequest="30"  BackgroundColor="Transparent"  Opacity="0.7" Grid.Row="1" Grid.Column="2"  />
+                    <ImageButton Source="{AppThemeBinding Light=minus.png,Dark=minus_dark.png}" Clicked="Btn_DecrementSplit_Clicked" HeightRequest="30" BackgroundColor="Transparent" Opacity="0.7" Grid.Row="1" Grid.Column="0"/>
+                    <Label Text="{Binding Bill.Split}" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+                    <ImageButton Source="{AppThemeBinding Light=add.png, Dark=add_dark.png}" Clicked="Btn_IncrementSplit_Clicked" HeightRequest="30"  BackgroundColor="Transparent"  Opacity="0.7" Grid.Row="1" Grid.Column="2"  />
 
-                    <Label Text="$10.00"  Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="End" FontSize="Large" TextColor="{StaticResource Primary}" FontAttributes="Bold"/>
+                    <Label Text="{Binding Bill.SplitAmount, StringFormat='{0:C}'}"  Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="End" FontSize="Large" TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource White}}" FontAttributes="Bold"/>
 
                 </Grid>
             </Border>

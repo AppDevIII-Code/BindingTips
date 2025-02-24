@@ -63,11 +63,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="DataRepos\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Views\InfoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
